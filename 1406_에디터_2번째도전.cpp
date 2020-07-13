@@ -35,28 +35,14 @@ void insert_NODE(char input)
 {
   struct NODE* temp = new NODE();
   temp->value = input;
-  if(cursor == head)
+  temp->next = cursor->next;
+  temp->prev = cursor;
+  if(cursor->next != NULL)
   {
-    temp->next = head->next;
-    temp->prev = head;
-    if(head->next != NULL)
-    {
-      head->next->prev = temp;
-    }
-    head->next = temp;
-    cursor = temp;
+    cursor->next->prev = temp;
   }
-  else
-  {
-    temp->next = cursor->next;
-    temp->prev = cursor;
-    if(cursor->next != NULL)
-    {
-      cursor->next->prev = temp;
-    }
-    cursor->next = temp;
-    cursor = temp;
-  }
+  cursor->next = temp;
+  cursor = temp;
 }
 int main(void)
 {
