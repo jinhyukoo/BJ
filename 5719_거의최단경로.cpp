@@ -37,9 +37,11 @@ vector<int> dijkstra(){
       int nextValue = inputs[nowIdx][i] + nowValue;
       if(!inputs[nowIdx][i]) continue;
       if(dist[i] < nextValue) continue;
+      // 클 때만 pq에 넣는다.
       if(dist[i] > nextValue){
         pq.push({i, nextValue});
       }
+      // 같을 때도 체크는 해야 하기 때문에 다음과 같이
       dist[i] = nextValue;
       trace[i].push_back(nowIdx);
     }
@@ -72,7 +74,6 @@ int main(void){
     // 첫번째 다익스트라 돌려서 최단 경로 찾기
     vector<int> dist = dijkstra();
     queue<int> q;
-    
     // BFS를 통해 최단 경로 제거해주기
     // 최단 경로인지 확인하는 방법은 5번에서 4번으로 간다고 했을 때 Dist[5] = Dist[4] + inputs[4][5] 인 것을 활용
     q.push(D);
