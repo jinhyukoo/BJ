@@ -5,7 +5,7 @@
 #include<functional>
 using namespace std;
 
-int parents[10001] = {0, };
+int parents[101] = {0, };
 struct info{
   int from;
   int to;
