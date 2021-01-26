@@ -6,7 +6,7 @@ int main(void){
   cin.tie(NULL);
   long long N, M, result = 0;
   cin>>N>>M;
-  vector<long long> sum(N+1)
+  vector<long long> sum(N+1);
   vector<int> remain(M+1);
   for(int i = 1 ; i<=N ; i++){
     cin>>sum[i];
